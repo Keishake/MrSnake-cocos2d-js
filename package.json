@@ -1,0 +1,16 @@
+{
+  "name": "prac2",
+  "version": "1.0.0",
+  "description": "This guide is for the usage of single file engine of Cocos2d-JS which can be retrieved from [the online downloader](http://cocos2d-x.org/filecenter/jsbuilder/).",
+  "main": "cocos2d-js-v3.10-lite.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^2.3.1"
+  }
+}
