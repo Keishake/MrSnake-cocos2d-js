@@ -1,8 +1,8 @@
 var res = {
-  bg_png : "Resources/bg.png",
-  coin_png : "Resources/pluskun.png",
-  enemy_png : "Resources/rectman.png",
-  snake_png : "Resources/snake.png",
+  img_bg : "Resources/bg.png",
+  img_coin : "Resources/pluskun.png",
+  img_enemy : "Resources/rectman.png",
+  img_snake : "Resources/snake.png",
   se_hitwall : "Resources/hitWall.mp3",
   se_getPoint : "Resources/getPoint.mp3",
   se_dead : "Resources/dead.mp3",
@@ -16,10 +16,10 @@ window.onload = function(){
         cc.view.resizeWithBrowserSize(true);
         //load resources
         var preload_res = [
-          res.bg_png,
-          res.coin_png,
-          res.enemy_png,
-          res.snake_png,
+          res.img_bg,
+          res.img_coin,
+          res.img_enemy,
+          res.img_snake,
           res.se_hitwall,
           res.se_getPoint,
           res.se_dead,
@@ -36,10 +36,10 @@ window.onload = function(){
                 onEnter:function () {
                     this._super();
                     var size = cc.director.getWinSize();
-                    var bg = cc.Sprite.create(res.bg_png);
+                    var bg = cc.Sprite.create(res.img_bg);
                     bg.setPosition(size.width/2, size.height/2);
                     this.addChild(bg);
-                    var sprite = cc.Sprite.create(res.snake_png);
+                    var sprite = cc.Sprite.create(res.img_snake);
                     sprite.setPosition(size.width / 2, size.height / 2);
                     sprite.setFlippedX(true);
                     this.addChild(sprite, 0);
@@ -107,7 +107,7 @@ window.onload = function(){
                 },
                 spawnEnemy: function(){
                   var size = cc.director.getWinSize();
-                  var enemy = cc.Sprite.create(res.enemy_png);
+                  var enemy = cc.Sprite.create(res.img_enemy);
                   var x = Math.floor( Math.random() * size.width ) ;
                   var fromTop = false;
                   if(x % 2 == 0){
@@ -132,7 +132,7 @@ window.onload = function(){
                 },
                 spawnCoin: function(){
                   var size = cc.director.getWinSize();
-                  var coin = cc.Sprite.create(res.coin_png);
+                  var coin = cc.Sprite.create(res.img_coin);
                   var x = Math.floor( Math.random() * size.width ) ;
                   var fromTop = false;
                   if(x % 2 == 0){
