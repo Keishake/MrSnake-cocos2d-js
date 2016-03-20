@@ -67,17 +67,15 @@ window.onload = function(){
                 },
                 update:function(dt){
                   this.moveSnake();
-                  var snakeRect = this.getRect(this._snake);
+                  var snakeRect = this._snake.getBoundingBox();
                   for(var i = 0; i < this._enemies.length; i++){
-                    var enemyRect = this.getRect(this._enemies[i]);
-                    if (cc.rectIntersectsRect(snakeRect, enemyRect)) {
+                    if (cc.rectIntersectsRect(snakeRect, this._enemies[i].getBoundingBox())) {
                         this.gameOver();
                     }
                   }
                   var i = this._coins.length;
                   while(i--){
-                    var coinRect = this.getRect(this._coins[i]);
-                    if (cc.rectIntersectsRect(snakeRect, coinRect)) {
+                    if (cc.rectIntersectsRect(snakeRect, this._coins[i].getBoundingBox())) {
                       this._coins[i].removeFromParent();
                       this._coins.splice(i,1);
                       this._score++;
@@ -154,11 +152,6 @@ window.onload = function(){
                   var move = new cc.MoveBy(duration, cc.p(0, dirY));
                   var remove = new cc.RemoveSelf(true);
                   coin.runAction(new cc.Sequence([move, remove]))
-                },
-                getRect: function(obj){
-                  var w = obj.width, h = obj.height;
-                  var r = cc.rect(obj.getPositionX() - w/2, obj.getPositionY() - h/2, w, h);
-                  return r;
                 },
                 updateScore: function(){
                   this._scoreLabel.setString("Score: " + this._score);
